@@ -49,8 +49,6 @@ $(function() {
         });
     });
 
-
-    /* TODO: Write a new test suite named "The menu" */
     describe('Menu', function(){
         const bodyTag = document.querySelector('body');
         /* This test ensures the menu element is hidden by default. */
@@ -77,7 +75,7 @@ $(function() {
          */
 
     describe('Initial Entries',function(){
-        let feedList = document.querySelector('.feed');
+        let feedList = document.querySelector('.feed,.entry');
         beforeEach(function(done){
             loadFeed(0,function(){
                 done();
@@ -91,8 +89,7 @@ $(function() {
     });
 
         /*this test ensures that when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         */
+          by the loadFeed function that the content actually changes.*/
     describe('New Feed Selection',function(){
         let contentChanged = false;
         let newFeed = document.querySelector('.feed');
