@@ -92,7 +92,6 @@ $(function() {
           by the loadFeed function that the content actually changes.*/
     describe('New Feed Selection',function(){
         let contentChanged = false;
-        let newFeed = document.querySelector('.feed');
         beforeEach(function(done) {
             loadFeed(0, function() {
                        firstFeed = document.querySelector(".feed").innerHTML;
