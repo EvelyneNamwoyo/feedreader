@@ -63,13 +63,11 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('Changes visibility when clicked',function(){
-            let wasClicked = false;
             const menuIcon = document.querySelector('.menu-icon-link');
-            if(menuIcon.clicked){
-                wasClicked = bodyTag.classList.contains('menu-hidden'); 
-            }
-            
-            expect(wasClicked).toBe(false);
+            menuIcon.click();
+            expect(bodyTag.classList.contains('menu-hidden')).toBe(false);
+            menuIcon.click();
+            expect(bodyTag.classList.contains('menu-hidden')).toBe(true);
         });
 
     });
