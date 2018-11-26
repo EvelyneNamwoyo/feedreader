@@ -92,18 +92,17 @@ $(function() {
         /*this test ensures that when a new feed is loaded
           by the loadFeed function that the content actually changes.*/
     describe('New Feed Selection',function(){
-        let contentChanged = false;
         let firstFeed;
         let newFeed;
         beforeEach(function(done) {
             loadFeed(0, function() {
                        firstFeed = document.querySelector(".feed").innerHTML;
                        loadFeed(1, function() {
+                        newFeed = document.querySelector(".feed").innerHTML;
                          done();
                        });
                      });
           });
-          newFeed = document.querySelector(".feed").innerHTML;
         it('Changes content ',function(done){
             expect(firstFeed).not.toEqual(newFeed);
             done();
