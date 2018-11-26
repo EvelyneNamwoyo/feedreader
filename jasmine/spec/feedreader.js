@@ -93,13 +93,17 @@ $(function() {
     describe('New Feed Selection',function(){
         let contentChanged = false;
         let newFeed = document.querySelector('.feed');
-        beforeEach(function(done){
-                loadFeed(1);
-                loadFeed(2,done)
-        });
-        
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                       firstFeed = document.querySelector(".feed").innerHTML;
+                       loadFeed(1, function() {
+                         done();
+                       });
+                     });
+          });
+          newFeed = document.querySelector(".feed").innerHTML;
         it('Changes content ',function(done){
-            if(newFeed.children[0].innerText !==newFeed.children[1].innerText ){
+            if(firstFeed !== newFeed){
                 contentChanged = true;
             }
             expect(contentChanged).toBe(true);
